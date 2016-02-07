@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Ejemplo CRUD en Django (N0rf3n).
+{% endblock %}
+
+{% block app %}
+    Ejemplo CRUD Detalle
+{% endblock %}
+
+{% block menu %}
+    {% include 'menu.html' %}
+{%  endblock %}
+
+{% block content %}
+
+    <h1> {{ post.title }} </h1>
+    <p> {{ post.body }} </p>
+
+    <a href="{% url "post:update" post.pk %}">Editar</a>
+    <a href="{% url "post:delete" post.pk %}">Eliminar</a>
+{% endblock %}

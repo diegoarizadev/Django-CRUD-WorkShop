@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Ejemplo CRUD en Django (N0rf3n).
+{% endblock %}
+
+{% block app %}
+    Ejemplo CRUD Crear
+{% endblock %}
+
+{% block menu %}
+    {% include 'menu.html' %}
+{%  endblock %}
+
+{% block content %}
+
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit">
+    </form>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Ejemplo CRUD en Django (N0rf3n).
+{% endblock %}
+
+{% block app %}
+    Ejemplo CRUD Eliminar
+{% endblock %}
+
+{% block menu %}
+    {% include 'menu.html' %}
+{%  endblock %}
+
+{% block content %}
+
+
+    <form action="" method="post">
+    {% csrf_token %}
+    <p>Esta seguro de eliminar el registro "{{ post }}"?</p>
+    <input type="submit" value="Delete">
+    </form>
+
+{% endblock %}

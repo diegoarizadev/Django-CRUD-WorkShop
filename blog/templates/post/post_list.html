@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Ejemplo CRUD en Django (N0rf3n).
+{% endblock %}
+
+{% block app %}
+    Ejemplo CRUD en Djando (N0rf3n) - WorkShop
+{% endblock %}
+
+{% block menu %}
+    {% include 'menu.html' %}
+{%  endblock %}
+
+{% block content %}
+
+    <ul>
+        {% for post in post_list %}
+            <li>
+                <a href={% url "post:detail" post.pk %}>
+                {{ post.title }}
+                <a>
+            </li>
+        {% endfor %}
+    </ul>
+    <br/>
+
+    {% if is_paginated %}
+        {% if page_obj.has_previous %}
+            <a href="{% url 'post:list' %}?page={{ page_obj.previous_page_number }}">Anterior</a>
+        {% endif %}
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+        {% if page_obj.has_next %}
+            <a href="{% url 'post:list' %}?page={{ page_obj.next_page_number }}">Siguiente</a>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}
